@@ -8,13 +8,13 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        trim: true
+        trim: true //"mong oose " => "mongoose"
     },
     email: {
         type: String,
         unique: true,
         trim: true,
-        //required: true,
+        required: true,
         validate(value) {
             if (!validator.isEmail(value)) {
                 throw new Error('Email is invalid')
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
         minlength: 7,
         validate(value){
             if (value.toLowerCase().includes('password')){
-                throw new Error('error')
+                throw new Error("Do not include 'password'")
             }
         }
     },
